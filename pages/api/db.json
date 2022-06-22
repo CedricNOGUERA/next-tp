@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Départ de vacances",
+        "category": 
+        {
+            "id": 1,
+            "name": "ménages",
+            "attributs": [
+                {
+
+                }
+            ]
+        },
+        "contenu": "",
+        "url": "/mal.png",
+        "stock": 20,
+        "pa": 250,
+        "pv": 320,
+        "status": "published"
+
+    }
+]
