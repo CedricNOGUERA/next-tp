@@ -4,8 +4,13 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
 import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
 
 const _blog = ({data}: any) => {
+
+    const router = useRouter()
+    const { pid } = router.query
+    console.log(pid)
   return (
     <Container fluid className="px-0 py-5 text-center justify-content-center">
       <h3 className="pb-4">Tous les articles</h3>
@@ -13,13 +18,13 @@ const _blog = ({data}: any) => {
         <Row xs={1} md={2} lg={4} className="g-md-2 g-lg-4">
           {data?.map((art: any) => (
             <>
-              <Col className="">
+              <Col key={art.id}>
                 <Card style={{ width: "100%" }} className="text-start h-100">
                   <Card.Img variant="top" src={art.url} />
                   <Card.Body>
                     <Card.Title>{art.name}</Card.Title>
                     <Card.Text>{art.contenu}</Card.Text>
-                    <Link href="/ui/detail-blog">
+                    <Link href={`/ui/blog/${art.id}`}>
                       <a className="btn btn-sm btn-outline-primary">
                         Lire l&apos;article
                       </a>
